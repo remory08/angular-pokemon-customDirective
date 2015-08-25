@@ -1,0 +1,11 @@
+<div ng-repeat="pokemon in pokemen |limitTo: 10">
+  <h4>name: {{pokemon.name}}</h4>
+  <h5>Abilities:</h5>
+  <ul ng-repeat="ability in pokemon.abilities">
+    <li>{{ability.name}}</li>
+  </ul>
+  <img src="{{pokemon.image}}" alt="">
+</div>
+
+<!-- <p>{{pokemen[0]}}</p>
+ -->
