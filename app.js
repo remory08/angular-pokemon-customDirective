@@ -7,18 +7,15 @@ app.controller('PokemonController', ['$scope', 'pokemonservice', function($scope
     // console.log(data.pokemon);
     var rando = Math.random()*500;
     rando = Math.round(rando)
-    var x = rando + 10;
+    var x = rando + 5;
     for (i=rando; i < x; i ++) {
       pokemonservice.getDetails(data.pokemon[i].resource_uri).then(function(pokeMan) {
-        // console.log(pokeMan.sprites[0].resource_uri);
         pokemonservice.getSprites(pokeMan.sprites[0].resource_uri).then(function(sprite) {
-        pokeMan.image = 'http://pokeapi.co' + sprite.image;
-        console.log(pokeMan);
+          pokeMan.image = 'http://pokeapi.co' + sprite.image;
         })
         $scope.pokemen.push(pokeMan);
       })
     }
-    // inside first then function console.log(data.pokemon[0].resource_uri);
   })
 }]);
 
